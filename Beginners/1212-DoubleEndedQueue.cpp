@@ -27,7 +27,7 @@ using namespace std;
 deque<int>Q;
 int main()
 {
-    openin;
+    //openin;
     int t;
     scanf("%d",&t);
     rep(_,1,t)

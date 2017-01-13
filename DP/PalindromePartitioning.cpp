@@ -67,7 +67,7 @@ int main()
         string str ;
         cin >> str ;
         cout << "Case "<<_<<": ";
-        cout << solve(str) << endl ;
+        cout << 1 + solve(str) << endl ;
     }
     return 0;
 }

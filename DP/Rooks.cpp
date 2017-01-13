@@ -15,7 +15,7 @@ using namespace std;
 #define openin freopen("input.txt","r",stdin)
 #define openout freopen("output.txt","w",stdout)
 #define fast ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
-#define ll long long
+#define ll unsigned long long
 #define mod 1000000007
 #define rep(i,a,n) for(__typeof(n) i=a;i<=n;++i)
 #define all(c) (c).begin(),(c).end()
@@ -24,24 +24,23 @@ using namespace std;
 #define pb push_back
 #define mp make_pair
 
-
 int main()
 {
     int t;
-    cin>>t;
+    scanf("%d",&t) ;
     rep(_,1,t)
     {
-        int n;
-        cin>>n;
-        int ans = 0;
-        rep(i,1,n)
-        {
-            int x;
-            cin>>x;
-            if(x>=0)ans+=x;
+        int n , k ;
+        scanf("%d %d", &n, &k);
+        ll ans = 0;
+        if(n*n >= k){
+            ans = 1;
+            for(int ck = 1; ck <= k; ck++){
+                ans = ans * n*n/ck;
+                n -= 1;
+            }
         }
-        cout << "Case "<<_<<": "<<ans<<endl;
+        printf("Case %d: %llu\n", _, ans);
     }
     return 0;
 }
-

@@ -23,25 +23,34 @@ using namespace std;
 #define ss second
 #define pb push_back
 #define mp make_pair
-
-
+int n , k , m ;
+ll dp[55][55][55] ;
+ll solve(int n,int k,int m)
+{
+    if(!k || !n)
+    {
+        if(!n && !k)return 1 ;
+        return 0 ;
+    }
+    ll &res = dp[n][k][m] ;
+    if(res != -1) return res ;
+    res = 0 ;
+    rep(i,1,m)
+    {
+        if(n>=i)res += solve(n-i,k-1,m) ;
+        else break ;
+    }
+    return res;
+}
 int main()
 {
+    memset(dp,-1,sizeof(dp)) ;
     int t;
-    cin>>t;
+    scanf("%d",&t) ;
     rep(_,1,t)
     {
-        int n;
-        cin>>n;
-        int ans = 0;
-        rep(i,1,n)
-        {
-            int x;
-            cin>>x;
-            if(x>=0)ans+=x;
-        }
-        cout << "Case "<<_<<": "<<ans<<endl;
+        scanf("%d%d%d",&n,&k,&m) ;
+        printf("Case %d: %lld\n" , _ , solve(n,k,m)) ;
     }
     return 0;
 }
-

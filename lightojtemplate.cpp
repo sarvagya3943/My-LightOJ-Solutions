@@ -16,6 +16,7 @@ using namespace std;
 #define openout freopen("output.txt","w",stdout)
 #define fast ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0)
 #define ll long long
+#define int ll
 #define mod 1000000007
 #define rep(i,a,n) for(__typeof(n) i=a;i<=n;++i)
 #define all(c) (c).begin(),(c).end()
@@ -25,23 +26,14 @@ using namespace std;
 #define mp make_pair
 
 
-int main()
+int32_t main()
 {
     int t;
     cin>>t;
     rep(_,1,t)
     {
-        int n;
-        cin>>n;
-        int ans = 0;
-        rep(i,1,n)
-        {
-            int x;
-            cin>>x;
-            if(x>=0)ans+=x;
-        }
-        cout << "Case "<<_<<": "<<ans<<endl;
+
+        cout << "Case "<<_<<": ";
     }
     return 0;
 }
-

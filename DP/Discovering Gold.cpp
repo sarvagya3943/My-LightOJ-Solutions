@@ -23,25 +23,30 @@ using namespace std;
 #define ss second
 #define pb push_back
 #define mp make_pair
-
-
+const int maxn = 1e2 + 5 ;
+int arr[maxn] ;
+double dp[maxn] ;
 int main()
 {
     int t;
-    cin>>t;
+    scanf("%d",&t) ;
     rep(_,1,t)
     {
-        int n;
-        cin>>n;
-        int ans = 0;
-        rep(i,1,n)
-        {
-            int x;
-            cin>>x;
-            if(x>=0)ans+=x;
+        int n ;
+        scanf("%d",&n) ;
+        for(int i = 1 ; i <= n ; ++i) {
+            scanf("%d",&arr[i]) ;
         }
-        cout << "Case "<<_<<": "<<ans<<endl;
+        dp[n] = arr[n] ;
+        for(int i = n - 1 ; i > 0 ; --i) {
+            int moves = n - i ;
+            if(moves > 6) moves = 6 ;
+            dp[i] = arr[i] ;
+            for(int j = i + 1 ; j <= i + moves ; ++j) {
+                dp[i] += dp[j]/(moves*1.0) ;
+            }
+        }
+        printf("Case %d: %.10f\n",_,dp[1]) ;
     }
     return 0;
 }
-
